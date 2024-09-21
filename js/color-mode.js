@@ -7,6 +7,7 @@ const defaultMode = "light-mode";
 // Load the user's preffered color mode from local storage.
 function loadColorMode() {
   const colorMode = localStorage.getItem(storageKey);
+  console.log("colorMode", colorMode);
   root.classList.add(colorMode || defaultMode);
   updateToggleButton();
 }
@@ -18,7 +19,7 @@ toggleButton.addEventListener("click", () => {
   saveColorMode();
 });
 
-// Save the users's preffered color mode to local storage
+// Save the user's preferred color mode to local storage.
 function saveColorMode() {
   // Check if the root element has a class of "dark-mode". If yes, then the current mode is switched to light, and vice versa.
   const currentMode = root.classList.contains("dark-mode")

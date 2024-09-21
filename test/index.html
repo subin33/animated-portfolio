@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전등 스위치 스타일 슬라이드 메뉴</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        #switch-container {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 100px;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        #pull-string {
+            width: 4px;
+            height: 50px;
+            background-color: #333;
+            margin: 0 auto;
+        }
+
+        #pull-knob {
+            width: 20px;
+            height: 20px;
+            background-color: #333;
+            border-radius: 50%;
+            margin: 0 auto;
+            margin-top: 10px;
+        }
+
+        #menu-bar {
+            position: fixed;
+            top: -200px;
+            width: 100%;
+            height: 200px;
+            background-color: #444;
+            color: #fff;
+            text-align: center;
+            line-height: 200px;
+            transition: top 0.5s ease;
+        }
+
+        #content {
+            padding: 20px;
+            margin-top: 120px;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <div id="switch-container">
+        <div id="pull-string"></div>
+        <div id="pull-knob"></div>
+    </div>
+    <div id="menu-bar">여기에 메뉴 내용</div>
+    <div id="content">다른 부분을 클릭하세요</div>
+
+    <script>
+        const switchContainer = document.getElementById('switch-container');
+        const menuBar = document.getElementById('menu-bar');
+        const content = document.getElementById('content');
+
+        switchContainer.addEventListener('click', () => {
+            if (menuBar.style.top === '0px') {
+                menuBar.style.top = '-200px'; // 메뉴 숨기기
+            } else {
+                menuBar.style.top = '0px'; // 메뉴 보여주기
+            }
+        });
+
+        content.addEventListener('click', () => {
+            if (menuBar.style.top === '0px') {
+                menuBar.style.top = '-200px'; // 메뉴 숨기기
+            }
+        });
+    </script>
+</body>
+</html>
